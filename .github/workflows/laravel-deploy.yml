@@ -36,7 +36,7 @@ jobs:
       - name: Sync files
         uses: SamKirkland/FTP-Deploy-Action@4.1.0
         with:
-          server: ftp://seranest-interactiva.com
+          server: "seranest-interactiva.com"
           username: u331540844
           password: Eml2020
           server-dir: "public_html/api-seranest/"
