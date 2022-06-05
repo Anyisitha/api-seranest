@@ -39,4 +39,4 @@ jobs:
           server: ftp.seranest-interactiva.com/
           username: u331540844
           password: Eml2020
-          server-dir: public_html/api-seranest
+          server-dir: "public_html/api-seranest"
