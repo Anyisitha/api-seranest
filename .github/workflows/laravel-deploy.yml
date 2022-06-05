@@ -37,6 +37,6 @@ jobs:
         uses: SamKirkland/FTP-Deploy-Action@4.1.0
         with:
           server: "seranest-interactiva.com"
-          username: u331540844
-          password: Eml2020
+          username: "u331540844"
+          password: "Eml2022*"
           server-dir: "public_html/api-seranest/"
