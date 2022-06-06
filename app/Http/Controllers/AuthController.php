@@ -48,6 +48,9 @@ class AuthController extends Controller
             $user->finished_module = 0;
             $user->finished_section = 0;
             $user->address = $request->address;
+            $user->especiality = $request->especiality;
+            $user->resident_year = $request->especiality_year;
+            $user->work_address = $request->work_address;
             $user->save();
 
             $user->assignRole("Admin");
@@ -56,7 +59,7 @@ class AuthController extends Controller
             DB::commit();
         } catch (\Throwable $th) {
             $result = $th->getMessage();
-            DB::rollBack(); 
+            DB::rollBack();
         }if ($status){
             return response()->json($this->responseApi(true, ["type" => "Success", "content" => "Done."], $user), 200);
         }else{
