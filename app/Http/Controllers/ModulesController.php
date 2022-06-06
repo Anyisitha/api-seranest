@@ -15,7 +15,7 @@ class ModulesController extends Controller
     {
         $modules = Module::all();
 
-        return response()->json($this->responseApi(true, ["type" => "Success", "content" => "Done."], $modules), 200);
+        return response()->json($this->responseApi(true, ["type" => "success", "content" => "Done."], $modules), 200);
     }
 
     public function getUserProgress()
