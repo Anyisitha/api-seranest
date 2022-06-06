@@ -163,7 +163,7 @@ class ModulesController extends Controller
         try {
             $user = Auth::user();
             $updatedUser = User::find($user->id);
-            $updatedUser->finished_section = $user->finished_section + 1;
+            $updatedUser->section_finished = $user->finished_section + 1;
             $updatedUser->save();
 
             $status = true;
