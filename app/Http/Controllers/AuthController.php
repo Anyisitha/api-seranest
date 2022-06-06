@@ -51,6 +51,7 @@ class AuthController extends Controller
             $user->especiality = $request->especiality;
             $user->resident_year = $request->especiality_year;
             $user->work_address = $request->work_address;
+            $user->phone = $request->phone;
             $user->save();
 
             $status = true;
