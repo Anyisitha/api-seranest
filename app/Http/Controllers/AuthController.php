@@ -61,7 +61,7 @@ class AuthController extends Controller
         }if ($status){
             return response()->json($this->responseApi(true, ["type" => "success", "content" => "Done."], $user), 200);
         }else{
-            return response()->json($this->responseApi(true, ["type" => "success", "content" => "Done."], $result), 200);
+            return response()->json($this->responseApi(true, ["type" => "error", "content" => "Error."], $result), 500);
         }
     }
 }

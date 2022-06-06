@@ -29,6 +29,6 @@ class Controller extends BaseController
             abort(500);
         }
 
-        return ["transaction" => ["status" => $status], $message, $data];
+        return ["transaction" => ["status" => $status], "message" => $message, "data" => $data];
     }
 }
