@@ -109,8 +109,8 @@ class ModulesController extends Controller
                 ],
                 [
                     "percent" => $percent,
-                    "moduleFinished" => $user->finished_module,
-                    "sectionFinished" => $user->finished_section
+                    "moduleFinished" => $user->module_finished,
+                    "sectionFinished" => $user->section_finished
                 ]
             ),
             200
