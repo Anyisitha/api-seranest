@@ -45,8 +45,8 @@ class AuthController extends Controller
             $user->city = $request->city;
             $user->status_id = 1;
             $user->nationality = $request->nationality;
-            $user->finished_module = 0;
-            $user->finished_section = 0;
+            $user->module_finished = 0;
+            $user->section_finished = 0;
             $user->address = $request->address;
             $user->especiality = $request->especiality;
             $user->resident_year = $request->especiality_year;
