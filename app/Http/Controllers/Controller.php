@@ -13,16 +13,16 @@ class Controller extends BaseController
 
     public function responseApi($status, $message = [], $data = [])
     {
-        if($status["type"] === "success"){
+        if($message["type"] === "success"){
             $message = $message;
             $message["code"] = 200;
-        }else if($status["type"] === "error"){
+        }else if($message["type"] === "error"){
             $message = $message;
             $message["code"] = 500;
-        }else if($status["type"] === "warning"){
+        }else if($message["type"] === "warning"){
             $message = $message;
             $message["code"] = 300;
-        }else if($status["type"] === "not found"){
+        }else if($message["type"] === "not found"){
             $message = $message;
             $message["code"] = 404;
         }else{
