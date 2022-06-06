@@ -11,6 +11,6 @@ class SectionsModule extends Model
 
     public function content()
     {
-        return $this->hasMany(ContentSectionsModule::class, "section_module_id");
+        return $this->belongsTo(ContentSectionsModule::class, "section_module_id");
     }
 }
