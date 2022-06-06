@@ -53,17 +53,15 @@ class AuthController extends Controller
             $user->work_address = $request->work_address;
             $user->save();
 
-            $user->assignRole("Admin");
-
             $status = true;
             DB::commit();
         } catch (\Throwable $th) {
             $result = $th->getMessage();
             DB::rollBack();
         }if ($status){
-            return response()->json($this->responseApi(true, ["type" => "Success", "content" => "Done."], $user), 200);
+            return response()->json($this->responseApi(true, ["type" => "success", "content" => "Done."], $user), 200);
         }else{
-            return response()->json($this->responseApi(true, ["type" => "Success", "content" => "Done."], $result), 200);
+            return response()->json($this->responseApi(true, ["type" => "success", "content" => "Done."], $result), 200);
         }
     }
 }
