@@ -16,7 +16,7 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials)) {
             $user = Auth::user();
-            $activeUser = User::whereStatusId($this->activeStatus)->find($user->id);
+            $activeUser = User::whereStatusId(1)->find($user->id);
             if (isset($activeUser->id)) {
                 $token = $activeUser->createToken("Roche")->accessToken;
                 return response()->json($this->responseApi(true, array("type" => "Success", "content" => "Bienvenido."), array("token" => $token, "user" => $activeUser)));
