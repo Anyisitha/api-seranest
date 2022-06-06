@@ -19,12 +19,12 @@ class AuthController extends Controller
             $activeUser = User::whereStatusId(1)->find($user->id);
             if (isset($activeUser->id)) {
                 $token = $activeUser->createToken("Roche")->accessToken;
-                return response()->json($this->responseApi(true, array("type" => "Success", "content" => "Bienvenido."), array("token" => $token, "user" => $activeUser)));
+                return response()->json($this->responseApi(true, array("type" => "success", "content" => "Bienvenido."), array("token" => $token, "user" => $activeUser)));
             } else {
-                return response()->json($this->responseApi(false, array("type" => "Unauthorizate", "content" => "No estas autorizado para ingresar."), array()), 401);
+                return response()->json($this->responseApi(false, array("type" => "unauthorizate", "content" => "No estas autorizado para ingresar."), array()), 401);
             }
         } else {
-            return response()->json($this->responseApi(false, array("type" => "Not Found", "content" => "Los datos ingresados no existen."), array()), 404);
+            return response()->json($this->responseApi(false, array("type" => "not found", "content" => "Los datos ingresados no existen."), array()), 404);
         }
     }
 
