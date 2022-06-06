@@ -121,14 +121,14 @@ class ModulesController extends Controller
     {
         $module = SectionsModule::with("content")->whereModuleId($id)->get();
 
-        return response()->json($this->responseApi(true, ["type" => "Success", "content" => "Done."], $module), 200);
+        return response()->json($this->responseApi(true, ["type" => "success", "content" => "Done."], $module), 200);
     }
 
     public function getQuestions($id)
     {
         $questions = QuestionsModule::with(["answers"])->where("content_section_module_id", $id)->get();
 
-        return response()->json($this->responseApi(true, ["type" => "Success", "content" => "Done."], $questions));
+        return response()->json($this->responseApi(true, ["type" => "success", "content" => "Done."], $questions));
     }
 
     public function setSectionAndModule()
@@ -149,9 +149,9 @@ class ModulesController extends Controller
             $result = $th->getMessage();
             DB::rollBack();
         }if($status){
-            return response()->json($this->responseApi(false, ["type" => "Success", "content" => "Done."], $updatedUser));
+            return response()->json($this->responseApi(false, ["type" => "success", "content" => "Done."], $updatedUser));
         }else{
-            return response()->json($this->responseApi(true, ["type" => "Error", "content" => "Error."], $result));
+            return response()->json($this->responseApi(true, ["type" => "error", "content" => "Error."], $result));
         }
     }
 
@@ -172,9 +172,9 @@ class ModulesController extends Controller
             $result = $th->getMessage();
             DB::rollBack();
         }if($status){
-            return response()->json($this->responseApi(true, ["type" => "Success", "content" => "Done."], $updatedUser), 200);
+            return response()->json($this->responseApi(true, ["type" => "success", "content" => "Done."], $updatedUser), 200);
         }else{
-            return response()->json($this->responseApi(true, ["type" => "Error", "content" => "No se pudo actualizar la seccion"], $result), 500);
+            return response()->json($this->responseApi(true, ["type" => "error", "content" => "No se pudo actualizar la seccion"], $result), 500);
         }
     }
 }
