@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class ContentSectionsModule extends Model
 {
     use HasFactory;
+
+    public function questions()
+    {
+        return $this->hasMany(QuestionsModule::class)
+    }
 }
