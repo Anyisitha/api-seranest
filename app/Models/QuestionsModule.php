@@ -11,6 +11,6 @@ class QuestionsModule extends Model
 
     public function answers()
     {
-        return $this->hasMany(AnswersModule::class);
+        return $this->hasMany(AnswersModule::class, "question_module_id");
     }
 }
