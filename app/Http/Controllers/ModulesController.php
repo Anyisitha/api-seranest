@@ -139,9 +139,9 @@ class ModulesController extends Controller
         try {
             $user = Auth::user();
             $updatedUser = User::find($user->id);
-            $updatedUser->module_finished = $user->finished_module + 1;
+            $updatedUser->module_finished = $updatedUser->module_finished + 1;
             $updatedUser->section_finished = 0;
-            $updatedUser->save();   
+            $updatedUser->save();
 
             $status = true;
             DB::commit();
