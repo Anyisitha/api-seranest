@@ -155,14 +155,13 @@ class ModulesController extends Controller
         }
     }
 
-    public function saveSection()
+    public function saveSection($user_id)
     {
         $status = false;
         $result = null;
         DB::beginTransaction();
         try {
-            $user = Auth::user();
-            $updatedUser = User::find($user->id);
+            $updatedUser = User::find($user_id);
             $updatedUser->section_finished = $user->finished_section + 1;
             $updatedUser->save();
 
