@@ -11,6 +11,6 @@ class ContentSectionsModule extends Model
 
     public function questions()
     {
-        return $this->hasMany(QuestionsModule::class)
+        return $this->hasMany(QuestionsModule::class);
     }
 }
