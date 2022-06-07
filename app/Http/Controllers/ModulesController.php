@@ -162,7 +162,7 @@ class ModulesController extends Controller
         DB::beginTransaction();
         try {
             $updatedUser = User::find($user_id);
-            $updatedUser->section_finished = $user->finished_section + 1;
+            $updatedUser->section_finished = $updatedUser->section_finished + 1;
             $updatedUser->save();
 
             $status = true;
