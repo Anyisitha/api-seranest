@@ -15,5 +15,5 @@ Route::prefix("module")->group(function(){
     Route::get("/get-module-section/{id}", "ModulesController@getModuleSection");
     Route::get("/get-questions/{id}", "ModulesController@getQuestions");
     Route::get("/set-modules-final", "ModulesController@setSectionAndModule")->middleware("auth:api");
-    Route::post("/save-section/{user_id}", "ModulesController@saveSection")->middleware("auth:api");
+    Route::post("/save-section/{user_id}", "ModulesController@saveSection");
 });
