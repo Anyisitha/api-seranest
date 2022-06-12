@@ -65,4 +65,30 @@ class AuthController extends Controller
             return response()->json($this->responseApi(true, ["type" => "error", "content" => "Error."], $result), 500);
         }
     }
+
+    public function changePassword(Request $request)
+    {
+        $status = false;
+        $result = null;
+        DB::beginTransaction();
+        try {
+            $searchUser = User::where("email", $request->email)->first();
+            if(isset($searchUser->id)){
+                $searchUser->password = Hash::make($request->password);
+                $searchUser->save();
+            }else{
+                return response()->json($this->responseApi(true, ["type" => "not found", "content" => "El usuario no existe."], $result), 404);
+            }
+
+            $status = false;
+            DB::commit();
+        } catch (\Throwable $th) {
+            $result = $th->getMessage();
+            DB::rollBack();
+        }if ($status) {
+            return response()->json($this->responseApi(true, ["type" => "success", "content" => "Done."], $searchUser), 200);
+        } else {
+            return response()->json($this->responseApi(true, ["type" => "error", "content" => "Error."], $result), 500);
+        }
+    }
 }
