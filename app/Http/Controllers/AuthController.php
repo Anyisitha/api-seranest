@@ -80,7 +80,7 @@ class AuthController extends Controller
                 return response()->json($this->responseApi(true, ["type" => "not found", "content" => "El usuario no existe."], $result), 404);
             }
 
-            $status = false;
+            $status = true;
             DB::commit();
         } catch (\Throwable $th) {
             $result = $th->getMessage();
